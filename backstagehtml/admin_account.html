@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>励铖软件-管理员账号</title>
+<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+
+<link rel="stylesheet" href="css/responsive-tables.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="js/modernizr.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="js/responsive-tables.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/jquery.tips.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+<script type="text/javascript">
+jQuery(document).ready(function(){
+
+    
+});
+
+</script>
+</head>
+
+<body>
+
+<div class="mainwrapper">
+    
+    <div class="header">
+        <div class="logo">
+            <a href="#"><img src="images/logo.png" alt="" /></a>
+        </div>
+        <div class="headerinner">
+            <ul class="headmenu">
+                <li class="odd">
+                    <a class="dropdown-toggle"  href="index.html">
+                        <span class="head-icon head-home"></span>
+                        <span class="headmenu-label">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+                    <span class="count">10</span>
+                    <span class="head-icon head-meeting"></span>
+                    <span class="headmenu-label">会议</span>
+                    </a>
+                    <ul class="dropdown-menu" style="width:220px;">
+                        <li class="nav-header">会议</li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li class="viewmore"><a href="meeting.html">更多</a></li>
+                    </ul>
+                </li>
+                <li class="odd" class="sj_shejiao">
+                    <a class="dropdown-toggle" href="shejiao.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-shejiao"></span>
+                    <span class="headmenu-label">社交</span>
+                    </a>
+                </li>
+                <li class="ht_background">
+                    <a class="dropdown-toggle" href="backmanage.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-backmanage"></span>
+                    <span class="headmenu-label">后台管理</span>
+                    </a>
+                </li>
+                <li class="odd wp_cloud">
+                    <a class="dropdown-toggle"  href="cloud.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-cloud"></span>
+                    <span class="headmenu-label">网盘</span>
+                    </a>
+                </li>
+                <li class="right">
+                    <div class="userloggedinfo">
+                        <img src="images/photos/thumb1.png" alt="" />
+                        <div class="userinfo">
+                            <h5>小胖 <small>- pang@hotmail.com</small></h5>
+                            <ul>
+                                <li><a href="my_info.html">编辑信息</a></li>
+                                <li><a href="">账号管理</a></li>
+                                <li><a href="index.html">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul><!--headmenu-->
+        </div>
+    </div>
+    
+    <div class="leftpanel">
+        
+        <div class="leftmenu">        
+            <ul class="nav nav-tabs nav-stacked">
+            	<li class="nav-header">导航</li>
+                <li class="dropdown"><a href=""><span class="fa fa-cog"></span> 系统管理</a>
+                    <ul>
+                        <li class="active"><a href="backmanage.html">基本信息</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown active"><a href=""><span class="fa fa-user"></span>用户管理</a>
+                    <ul style="display: block">
+                        <li><a href="chengyuan_account.html">成员账号</a></li>
+                        <li class="active"><a href="admin_account.html">管理员账号</a></li>
+                        <li ><a href="team_account.html">团队账号</a></li>
+                        <li><a href="ziliao_gl.html">成员资料管理</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href=""><span class="fa fa-folder-open"></span>内容管理</a>
+                    <ul>
+                        <li class="active"><a href="dt_set.html">动态设置</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href=""><span class="fa fa-lock"></span>安全管理</a>
+                    <ul>
+                        <li class="active"><a href="ip_fw.html">ip访问控制</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--leftmenu-->
+        
+    </div><!-- leftpanel -->
+    
+    <div class="rightpanel">
+        
+        <ul class="breadcrumbs">
+            <li><a href="meeting.html"><i class="fa fa-home"></i></a> <span class="separator"></span></li>
+            <li>我的账号</li>
+            <li class="right">
+                    <a href="" data-toggle="dropdown" class="dropdown-toggle"><i class="icon-tint"></i> 皮肤颜色</a>
+                    <ul class="dropdown-menu pull-right skin-color">
+                        <li><a href="default">默认颜色</a></li>
+                        <li><a href="blue">蓝色</a></li>
+                        <li><a href="palegreen">军绿色</a></li>
+                        <li><a href="red">红色</a></li>
+                        <li><a href="green">绿色</a></li>
+                        <li><a href="brown">棕色</a></li>
+                    </ul>
+            </li>
+        </ul>
+        
+        <div class="pageheader">
+
+         <span class="creatmeetingbtn"><a href="#"><i class="fa fa-plus"></i>创建账号</a></span>
+         <span class="creatmeetingbtn" style="margin-left:30px;"><a href="#">批量导入</a></span>
+
+         <form style="float:right;">
+           <input type="submit" class="addbtn fr" value="搜索" />
+           <input type="text" class="addinput" placeholder="输入邮箱进行查找" />
+
+         </form>
+
+        </div><!--pageheader-->
+
+        <div class="maincontent">
+            <div class="maincontentinner">
+                <div class="row-fluid">
+
+                            <div id="meeting_tabs">
+                                <ul>
+                                    <li class="tabulous_active"><a href="#tabs_jx" title="">管理员列表</a></li>
+                                </ul>
+
+                                <div id="tabs_container">
+ 
+                                    <div class="pane" id="tabs_jx" style="width:98%;margin:10px auto;">
+                                       <table style="width:100%;margin-top:10px;" class="main_meeting_table">
+                                        <tr class="main_meeting">
+                                            <td class="bl">
+                                            <a href="#" class="meeting_a_thime">
+                                                <div class="fl"> <img src="images/group.jpg" border="0" /></div>
+                                                <div class="fl mt3 ml10">
+                                                  <div class="mywork">徐阳波</div>
+                                                  <div class="clear"></div>
+                                                  <div class="meet_time">研发</div>
+                                                </div>
+                                             </a>
+
+                                            </td>
+                                            <td align="center">asdasdasdas@gmail.com</td>
+                                        </tr>
+                                    </table>
+                                    <div class="renming">任命其他管理员</div>
+                                    <input type="text" value="" placeholder="输入用户名或者邮箱">
+                                    <span class="creatmeetingbtn" style="margin-left:30px;float: none"><a style="padding:5px 20px;" href="#">确认</a></span>
+
+                                    <div class="renming" style="font-size:12px;">温馨提示：可以把公司信息部同事或者网络管理员设为云之家的管理员</div>
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+                                </div><!--End tabs container-->
+                                
+                            </div><!--End tabs-->
+
+
+
+
+    
+
+                </div><!--tabbedwidget-->
+                        
+                
+                <div class="footer">
+                    <div class="footer-left">
+                        <span>&copy; 2014. 上海励铖软件. All Rights Reserved.</span>
+                    </div>
+                    <div class="footer-right">
+                        <span>Power by: <a href="">上海励铖软件</a></span>
+                    </div>
+                </div><!--footer-->
+                
+            </div><!--maincontentinner-->
+        </div><!--maincontent-->
+        
+    </div><!--rightpanel-->
+    
+</div><!--mainwrapper-->
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>励铖软件-创建会议</title>
+<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+
+<link rel="stylesheet" href="css/responsive-tables.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="js/modernizr.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="js/responsive-tables.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+
+  jQuery(".rightbtns").click(function(){
+        if(jQuery(this).hasClass("r_click")){
+            jQuery(this).removeClass("r_click");
+            jQuery(this).parent().parent().parent().css("width","100%");
+            jQuery(this).parent().parent().parent().next().css({"width":"0%",'margin-left':'0%'});
+            jQuery(this).parent().parent().parent().next().hide();
+        }else{
+           jQuery(this).addClass("r_click"); 
+            jQuery(this).parent().parent().parent().css("width","80%");
+            jQuery(this).parent().parent().parent().next().css({"width":"19%",'margin-left':'1%'});
+            jQuery(this).parent().parent().parent().next().show();
+        }
+
+
+  })
+  showornot();
+    jQuery(window).resize(function(){
+       showornot(); 
+       if(jQuery("#dashboard-left").eq(0).next().css("margin-left")=='0%'){
+        jQuery(".rightbtns ").eq(0).removeClass("r_click");
+       }
+       var swidth=parseInt(jQuery(".topsearch").width())*0.8;
+       jQuery(".searchresults_list").width(swidth);
+    }); 
+    jQuery(".close_search").live("click",function(){
+           jQuery(this).parent().hide(100);
+    })
+
+     jQuery(".contractp_zu").live("click",function(){
+      if(jQuery(this).hasClass("oxia")){
+          jQuery(this).removeClass("oxia");
+          jQuery(this).next().hide(200);
+          }
+          else
+          {
+          jQuery(this).addClass("oxia");
+          jQuery(this).next().show(200);
+          }
+        })
+
+     jQuery("#searchcontractpeople").click(function(){
+       var swidth=parseInt(jQuery(".topsearch").width())*0.8;
+       jQuery(".searchresults_list").width(swidth);
+        jQuery(".searchresults_list").show(100);
+     })
+
+    jQuery('#meeting_tabs ul li').click(function(){
+        jQuery(this).addClass('tabulous_active').siblings().removeClass('tabulous_active');
+        jQuery('#tabs_container>.pane:eq('+jQuery(this).index()+')').show().siblings().hide();   
+    })
+
+    rome(meeting_input_t,{monthFormat:"YYYY MMMM"});
+
+})
+
+function showornot(){
+
+    if(jQuery(".rightbtns").eq(0).is(":hidden")){
+            jQuery("#dashboard-left").eq(0).css("width","100%");
+            jQuery("#dashboard-left").eq(0).next().css({"width":"0%",'margin-left':'0%'}); 
+            jQuery("#dashboard-left").eq(0).next().hide(100);
+    }
+}
+</script>
+</head>
+
+<body>
+
+<div class="mainwrapper">
+    
+    <div class="header">
+        <div class="logo">
+            <a href="#"><img src="images/logo.png" alt="" /></a>
+        </div>
+        <div class="headerinner">
+            <ul class="headmenu">
+                <li class="odd">
+                    <a class="dropdown-toggle"  href="index.html">
+                        <span class="head-icon head-home"></span>
+                        <span class="headmenu-label">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+                    <span class="count">10</span>
+                    <span class="head-icon head-meeting"></span>
+                    <span class="headmenu-label">会议</span>
+                    </a>
+                    <ul class="dropdown-menu" style="width:220px;">
+                        <li class="nav-header">会议</li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li class="viewmore"><a href="meeting.html">更多</a></li>
+                    </ul>
+                </li>
+                <li class="odd" class="sj_shejiao">
+                    <a class="dropdown-toggle" href="shejiao.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-shejiao"></span>
+                    <span class="headmenu-label">社交</span>
+                    </a>
+                </li>
+                <li class="ht_background">
+                    <a class="dropdown-toggle" href="backmanage.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-backmanage"></span>
+                    <span class="headmenu-label">后台管理</span>
+                    </a>
+                </li>
+                <li class="odd wp_cloud">
+                    <a class="dropdown-toggle" href="cloud.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-cloud"></span>
+                    <span class="headmenu-label">网盘</span>
+                    </a>
+                </li>
+                <li class="right">
+                    <div class="userloggedinfo">
+                        <img src="images/photos/thumb1.png" alt="" />
+                        <div class="userinfo">
+                            <h5>小胖 <small>- pang@hotmail.com</small></h5>
+                            <ul>
+                                <li><a href="my_info.html">编辑信息</a></li>
+                                <li><a href="">账号管理</a></li>
+                                <li><a href="index.html">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul><!--headmenu-->
+        </div>
+    </div>
+    
+    <div class="leftpanel">
+        
+        <div class="leftmenu">        
+            <ul class="nav nav-tabs nav-stacked">
+            	<li class="nav-header">导航</li>
+                <li class="active"><a href="meeting.html"><span class="fa fa-info-circle"></span> 会议信息</a></li>
+                <li><a href="log_meeting.html"><span class="fa fa-clock-o"></span> 会议日志</a></li>
+                <li><a href="#"><span class="fa fa-file"></span> 会议文件</a></li>
+                <li><a href="#"><span class="fa fa-cog"></span> 会议信息维护</a></li>
+                <li><a href="richeng.html"><span class="fa fa-calendar"></span>日程管理</a></li>
+                <li><a href="add_meeting.html"><span class="fa fa-bell"></span> 预约</a></li>
+            </ul>
+        </div><!--leftmenu-->
+        
+    </div><!-- leftpanel -->
+    
+    <div class="rightpanel">
+        
+        <ul class="breadcrumbs">
+            <li><a href="meeting.html"><i class="fa fa-home"></i></a> <span class="separator"></span></li>
+            <li>会议</li>
+            <li class="right">
+                    <a href="" data-toggle="dropdown" class="dropdown-toggle"><i class="icon-tint"></i> 皮肤颜色</a>
+                    <ul class="dropdown-menu pull-right skin-color">
+                        <li><a href="default">默认颜色</a></li>
+                        <li><a href="blue">蓝色</a></li>
+                        <li><a href="palegreen">军绿色</a></li>
+                        <li><a href="red">红色</a></li>
+                        <li><a href="green">绿色</a></li>
+                        <li><a href="brown">棕色</a></li>
+                    </ul>
+            </li>
+        </ul>
+        
+        <div class="pageheader">
+
+         <span class="creatmeetingbtn"><a href="add_meeting.html">创建会议</a></span>
+
+         <form style="float:right;">
+           <input type="submit" class="addbtn fr" value="快速加入" />
+           <input type="text" class="addinput" placeholder="会议码" />
+
+         </form>
+
+        </div><!--pageheader-->
+
+        <script type="text/javascript" src="js/romedate/rome.js" ></script> 
+        <link rel="stylesheet" href="js/romedate/rome.css">
+        <link rel="stylesheet" href="css/uniform.tp.css">
+        <div class="maincontent">
+            <div class="maincontentinner">
+                <div class="row-fluid">
+                <div id="dashboard-left" class="span8">
+                    <div id="meeting_tabs">
+                            <ul>
+                                <li class="tabulous_active"><a href="#tabs_info" title="">详情</a></li>
+                                <div class="rightbtns" title="联系人"></div>
+                            </ul>
+
+                            <div id="tabs_container">
+                                <div  class="pane" id="tabs_info" style="width:98%;margin:10px auto;">
+                                <div class="onelist_meeting">
+                                  <b>开始时间：</b><input type="text" value="" placeholder="格式：2014-10-10 10:30" id="meeting_input_t" />
+                                  <br class="m_hh" />
+                                  <b class="ml15 m_flag">时长：</b>
+                                  <select>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                  </select>
+                                  <span>小时</span>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <select>
+                                    <option>0</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                    <option>50</option>
+                                    <option>60</option>
+                                  </select>
+                                  <span>分钟</span>
+                                </div>
+
+                                <div class="onelist_meeting">
+                                <b>重复：</b>
+                                <input type="radio" name="repeat" />天
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <input type="radio" name="repeat" />周
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="radio" name="repeat" />月
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="radio" name="repeat" checked="checked" />不重复
+
+                                </div>
+
+                                <div class="onelist_meeting">
+                                <b>主题：</b>
+                                <input type="text" class="meet_input" placeholder="输入会议主题" />
+
+                                </div>
+                                <div class="onelist_meeting">
+                                <b>内容：</b>
+                                <textarea placeholder="输入会议内容" rows="5"></textarea>
+
+                                </div>
+                                <div class="onelist_meeting">
+                                <b>创建人：</b>
+                                <span>张三</span>
+
+                                </div>
+                                <div class="onelist_meeting">
+                                <b>与会人员：</b>
+                                <input type="text" class="meet_input" placeholder="你可以右侧添加人员" />
+
+                                </div>
+
+                                <div class="onelist_meeting">
+                                <b>会议状态：</b>
+                                <span>进行中</span>
+
+                                </div>
+
+                                <div class="onelist_meeting">
+                                <b style="dispaly:block;float:left;margin-top:18px;">会议文档：</b>
+                                <a class="afile" href="javascript:void(0)">选择文件<input type="file" value="" accept="image/png,image/gif,application/msword,image/jpeg,application/pdf,application/vnd.ms-powerpoint,text/plain,aplication/zip"></a>
+
+
+                                </div>
+
+                                <div class="onelist_meeting" style="padding-top:15px;">
+                                <b>会议密码：</b>
+                                 <input type="password" class="meet_input" placeholder="你可以右侧添加人员" />
+
+                                </div>
+                                <div class="onelist_meeting" >
+                                <b>&nbsp;</b>
+                                 <input type="checkbox"  >显示密码
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="checkbox"  >将密码添加到邀请信息中
+
+                                </div>
+                                  <div class="onelist_meeting" >
+                                  
+                                    <b>&nbsp;</b>
+                                     <span style="display:inline-block;float:none" class="creatmeetingbtn"><a href="add_meeting.html">保存</a></span>
+
+                                </div>
+
+
+
+
+                           
+                                </div>
+
+                             
+
+                            </div><!--End tabs container-->
+                            
+                        </div><!--End tabs-->
+                 </div>
+                     <div class="right_contract" style="display:none;">
+                        <div class="contract_people">
+                          <div class="topsearch"><input type="text" class="s_input" placeholder="查找联系人" /><input type="button" title="添加联系人" class="b_input" id="searchcontractpeople" /></div>
+
+                            <div class="searchresults_list"  style="display: none;">   
+                              <div class="close_search"></div>
+                                 <div style="padding:5px 5px 5px 8px;">1个搜索结果</div>
+                                <ul class="search_results" >
+                                <li><a href="#">战三是</a></li>
+                                </ul>
+                          
+                           </div>
+
+                            <div class="contractlist" id="user_friends_box11">
+                                <div class="contractp_zu" title="我的好友">我的好友</div>
+                                  <ul class="onegroups" style="display: none;">
+                                   <li class="friendlists" title="李四"><a href="javascript:void(0)">李四</a></li>
+                                 </ul>
+                             <div class="contractp_zu" title="好友">好友</div>
+                               <ul class="onegroups" style="display: none;">
+                                   <li class="friendlists" title="张三"><a href="javascript:void(0)">张三</a></li>
+                               </ul>
+                            </div>
+
+                        </div>
+                         
+
+                     </div>
+                </div><!--tabbedwidget-->
+                        
+                
+                <div class="footer">
+                    <div class="footer-left">
+                        <span>&copy; 2014. 上海励铖软件. All Rights Reserved.</span>
+                    </div>
+                    <div class="footer-right">
+                        <span>Power by: <a href="">上海励铖软件</a></span>
+                    </div>
+                </div><!--footer-->
+                
+            </div><!--maincontentinner-->
+        </div><!--maincontent-->
+        
+    </div><!--rightpanel-->
+    
+</div><!--mainwrapper-->
+
+</body>
+</html>

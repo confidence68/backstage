@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>励铖软件-网盘</title>
+<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+
+<link rel="stylesheet" href="css/responsive-tables.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="js/modernizr.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="js/responsive-tables.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+           jQuery("#checkAll").click(function() {
+                jQuery('input[name="subBox"]').attr("checked",this.checked); 
+            });
+            var jQuerysubBox = jQuery("input[name='subBox']");
+            jQuerysubBox.click(function(){
+                jQuery("#checkAll").attr("checked",jQuerysubBox.length == jQuery("input[name='subBox']:checked").length ? true : false);
+            });
+
+            jQuery(".action-rename").click(function(){
+                var filename=jQuery(this).prev().html();
+                jQuery(this).prev().hide();
+                jQuery(this).next().val(filename);
+                jQuery(this).next().show();
+                jQuery(this).hide();
+            })
+
+            jQuery(".change_file_name").blur(function(){
+                var change_name=jQuery(this).val();
+                jQuery(this).hide();
+                jQuery(this).prev().show();
+                jQuery(this).prev().prev().html(change_name);
+                jQuery(this).prev().prev().show();
+            })
+
+})
+
+</script>
+</head>
+
+<body>
+
+<div class="mainwrapper">
+    
+    <div class="header">
+        <div class="logo">
+            <a href="#"><img src="images/logo.png" alt="" /></a>
+        </div>
+        <div class="headerinner">
+            <ul class="headmenu">
+                <li class="odd">
+                    <a class="dropdown-toggle"  href="index.html">
+                        <span class="head-icon head-home"></span>
+                        <span class="headmenu-label">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+                    <span class="count">10</span>
+                    <span class="head-icon head-meeting"></span>
+                    <span class="headmenu-label">会议</span>
+                    </a>
+                    <ul class="dropdown-menu" style="width:220px;">
+                        <li class="nav-header">会议</li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li class="viewmore"><a href="meeting.html">更多</a></li>
+                    </ul>
+                </li>
+                <li class="odd" class="sj_shejiao">
+                    <a class="dropdown-toggle" href="shejiao.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-shejiao"></span>
+                    <span class="headmenu-label">社交</span>
+                    </a>
+                </li>
+                <li class="ht_background">
+                    <a class="dropdown-toggle" href="backmanage.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-backmanage"></span>
+                    <span class="headmenu-label">后台管理</span>
+                    </a>
+                </li>
+                <li class="odd wp_cloud">
+                    <a class="dropdown-toggle"  href="cloud.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-cloud"></span>
+                    <span class="headmenu-label">网盘</span>
+                    </a>
+                </li>
+                <li class="right">
+                    <div class="userloggedinfo">
+                        <img src="images/photos/thumb1.png" alt="" />
+                        <div class="userinfo">
+                            <h5>小胖 <small>- pang@hotmail.com</small></h5>
+                            <ul>
+                                <li><a href="my_info.html">编辑信息</a></li>
+                                <li><a href="">账号管理</a></li>
+                                <li><a href="index.html">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul><!--headmenu-->
+        </div>
+    </div>
+    
+    <div class="leftpanel">
+        
+        <div class="leftmenu">        
+            <ul class="nav nav-tabs nav-stacked">
+            	<li class="nav-header">导航</li>
+                <li class="active"><a href="cloud.html"><span class="fa fa-file"></span> 我的文档</a></li>
+                <li><a href="#"><span class="fa fa-share-alt"></span> 我的分享</a></li>
+                <li><a href="#"><span class="fa fa-trash"></span> 回收站</a></li>
+            </ul>
+        </div><!--leftmenu-->
+        
+    </div><!-- leftpanel -->
+    
+    <div class="rightpanel">
+        
+        <ul class="breadcrumbs">
+            <li><a href="meeting.html"><i class="fa fa-home"></i></a> <span class="separator"></span></li>
+            <li>网盘</li>
+            <li class="right">
+                    <a href="" data-toggle="dropdown" class="dropdown-toggle"><i class="icon-tint"></i> 皮肤颜色</a>
+                    <ul class="dropdown-menu pull-right skin-color">
+                        <li><a href="default">默认颜色</a></li>
+                        <li><a href="blue">蓝色</a></li>
+                        <li><a href="palegreen">军绿色</a></li>
+                        <li><a href="red">红色</a></li>
+                        <li><a href="green">绿色</a></li>
+                        <li><a href="brown">棕色</a></li>
+                    </ul>
+            </li>
+        </ul>
+        
+        <div class="pageheader">
+        <link rel="stylesheet" href="css/cloud.css">
+           <div class="btn-group circle_btn">
+           <button data-toggle="dropdown" onclick="" class="btn dropdown-toggle"><span class="fa fa-file-o"></span>新建 <span class="caret"></span></button>
+                    <ul class="dropdown-menu" style="margin-left:20px;">
+                      <li><a href="#"><span class="fa fa-file-text"></span>&nbsp;&nbsp;&nbsp;文本文档</a></li>
+                      <li><a href="#"><span class="fa fa-folder"></span>&nbsp;&nbsp;&nbsp;文件夹</a></li>
+                      <li><a href="#"><span class="fa fa-share-alt-square"></span>&nbsp;&nbsp;&nbsp;来自链接</a></li>
+                    </ul>
+             </div>
+
+           <div class="btn-group circle_btn" title="最大上传500M">
+               <button data-toggle="dropdown" onclick="" class="btn"><span class="fa fa-cloud-upload"></span>上传 </button>
+               <span></span>
+            </div>
+
+         <form style="float:right;">
+           <input type="submit" class="addbtn fr" value="搜索" />
+           <input type="search" class="addinput" placeholder="输入搜索内容搜索" />
+
+         </form>
+
+        </div><!--pageheader-->
+        
+        <div class="maincontent">
+            <div class="maincontentinner">
+                <div class="row-fluid">
+
+
+
+
+<table id="filestable"  class="">
+    <thead>
+        <tr>
+            <th id="headerName" class="column-name">
+                <div id="headerName-container">
+                    <input type="checkbox" id="checkAll" class="select-all" original-title="">
+                    <label for="select_all_files"></label>
+                    <a class="name sort columntitle"  href="#">
+                        <span>名称</span>
+                        <span class="sort-indicator icon-triangle-n"></span>
+                    </a>
+                    <span id="selectedActionsList" class="selectedActions hidden">
+                        <a href="" class="download">
+                            <img class="svg" alt="Download" src="images/svg/download.svg">下载</a>
+                    </span>
+                </div>
+            </th>
+            <th id="headerSize" class="column-size" >
+                <a class="size sort columntitle" href="#">
+                    <span>大小</span>
+                    <span class="sort-indicator icon-triangle-n"></span>
+                </a>
+            </th>
+            <th id="headerDate" class="column-mtime">
+                <a id="modified" class="columntitle" href="#">
+                    <span>修改日期</span>
+                    <span class="sort-indicator icon-triangle-s"></span>
+                </a>
+                <span class="selectedActions hidden">
+                    <a href="#" class="delete-selected">
+                        删除
+                        <img class="svg" alt="删除" src="images/svg/delete.svg"></a>
+                </span>
+            </th>
+        </tr>
+    </thead>
+    <tbody id="fileList">
+        <tr>
+            <td class="filename ui-draggable ui-droppable" style="background-image: url(images/svg/folder-public.svg); background-size: 32px;">
+                <input id="" name="subBox" type="checkbox">
+                <label for="select-files-4"></label>
+                <div class="name">
+                    <span class="nametext">
+                        <span class="innernametext">Music</span>
+                        <a href="#" class="action action-rename" data-action="Rename" original-title="">
+                            <img class="svg" src="images/svg/rename.svg">
+                            <span></span>
+                        </a>
+                        <input type="text" value="" style="display: none;" class="change_file_name" />
+                    </span>
+                    <span class="uploadtext" currentuploads="0"></span>
+                    <span class="fileactions">
+                        <a href="#" class="action action-download" data-action="Download" original-title="">
+                            <img class="svg" src="images/svg/download.svg">
+                            <span>下载</span>
+                        </a>
+                        <a href="#" class="action action-share permanent" data-action="Share" original-title="">
+                            <img class="svg" src="images/svg/public.svg">
+                            <span>已共享</span>
+                        </a>
+                    </span>
+                </div>
+            </td>
+            <td class="filesize" style="color:rgb(-4780,-4780,-4780)">70.3 MB</td>
+            <td class="date">
+                <span class="modified" title="September 29, 2014 14:45" style="color:rgb(0,0,0)">2 分钟前</span>
+                <a href="#" original-title="删除" class="action delete delete-icon"></a>
+            </td>
+        </tr>
+
+        <tr >
+            <td class="filename ui-draggable ui-droppable" style="background-image:url(images/svg/folder.svg); background-size: 32px;">
+                <input id="" name="subBox" type="checkbox">
+                <label for="select-files-11"></label>
+                <div class="name" >
+                    <span class="nametext">
+                        <span class="innernametext">Photos</span>
+                        <a href="#" class="action action-rename" data-action="Rename">
+                            <img class="svg" src="images/svg/rename.svg">
+                            <span></span>
+                        </a>
+                        <input type="text" value="" style="display: none;" class="change_file_name"  />
+                    </span>
+                    <span class="uploadtext" currentuploads="0"></span>
+                    <span class="fileactions">
+                        <a href="#" class="action action-download" data-action="Download">
+                            <img class="svg" src="images/svg/download.svg">
+                            <span>下载</span>
+                        </a>
+                        <a href="#" class="action action-share" data-action="Share">
+                            <img class="svg" src="images/svg/share.svg">
+                            <span>分享</span>
+                        </a>
+                    </span>
+                </div>
+            </td>
+            <td class="filesize" style="color:rgb(159,159,159)">762 kB</td>
+            <td class="date">
+                <span class="modified" style="color:rgb(0,0,0)" original-title="September 29, 2014 16:36">2 分钟前</span>
+                <a href="#" original-title="删除" class="action delete delete-icon"></a>
+            </td>
+        </tr>
+        <tr >
+            <td class="filename ui-draggable ui-droppable" style="background-image:url(images/svg/folder.svg); background-size: 32px;">
+                <input id="" name="subBox" type="checkbox">
+                <label for=""></label>
+                <div class="name" >
+                    <span class="nametext">
+                        <span class="innernametext">Photos22</span>
+                        <a href="#" class="action action-rename" data-action="Rename">
+                            <img class="svg" src="images/svg/rename.svg">
+                            <span></span>
+                        </a>
+                        <input type="text" value="" style="display: none;" class="change_file_name"  />
+                    </span>
+                    <span class="uploadtext" currentuploads="0"></span>
+                    <span class="fileactions">
+                        <a href="#" class="action action-download" data-action="Download">
+                            <img class="svg" src="images/svg/download.svg">
+                            <span>下载</span>
+                        </a>
+                        <a href="#" class="action action-share" data-action="Share">
+                            <img class="svg" src="images/svg/share.svg">
+                            <span>分享</span>
+                        </a>
+                    </span>
+                </div>
+            </td>
+            <td class="filesize" style="color:rgb(159,159,159)">762 kB</td>
+            <td class="date">
+                <span class="modified" style="color:rgb(0,0,0)" original-title="September 29, 2014 16:36">2 分钟前</span>
+                <a href="#" original-title="删除" class="action delete delete-icon"></a>
+            </td>
+        </tr>
+        <tr >
+            <td class="filename ui-draggable ui-droppable" style="background-image:url(images/svg/folder.svg); background-size: 32px;">
+                <input id="" name="subBox" type="checkbox">
+                <label for=""></label>
+                <div class="name" >
+                    <span class="nametext">
+                        <span class="innernametext">Photos2</span>
+                        <a href="#" class="action action-rename" data-action="Rename">
+                            <img class="svg" src="images/svg/rename.svg">
+                            <span></span>
+                        </a>
+                        <input type="text" value="" style="display: none;" class="change_file_name"  />
+                    </span>
+                    <span class="uploadtext" currentuploads="0"></span>
+                    <span class="fileactions">
+                        <a href="#" class="action action-download" data-action="Download">
+                            <img class="svg" src="images/svg/download.svg">
+                            <span>下载</span>
+                        </a>
+                        <a href="#" class="action action-share" data-action="Share">
+                            <img class="svg" src="images/svg/share.svg">
+                            <span>分享</span>
+                        </a>
+                    </span>
+                </div>
+            </td>
+            <td class="filesize" style="color:rgb(159,159,159)">762 kB</td>
+            <td class="date">
+                <span class="modified" style="color:rgb(0,0,0)" original-title="September 29, 2014 16:36">2 分钟前</span>
+                <a href="#" original-title="删除" class="action delete delete-icon"></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+    
+
+                </div><!--tabbedwidget-->
+                        
+                
+                <div class="footer">
+                    <div class="footer-left">
+                        <span>&copy; 2014. 上海励铖软件. All Rights Reserved.</span>
+                    </div>
+                    <div class="footer-right">
+                        <span>Power by: <a href="">上海励铖软件</a></span>
+                    </div>
+                </div><!--footer-->
+                
+            </div><!--maincontentinner-->
+        </div><!--maincontent-->
+        
+    </div><!--rightpanel-->
+    
+</div><!--mainwrapper-->
+
+</body>
+</html>

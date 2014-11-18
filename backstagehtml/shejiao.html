@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>励铖软件-社交</title>
+<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+
+<link rel="stylesheet" href="css/responsive-tables.css">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.min.js"></script>
+<script type="text/javascript" src="js/modernizr.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/flot/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="js/responsive-tables.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+<script type="text/javascript">
+function css(obj, attr, value)
+{
+    switch (arguments.length)
+    {
+        case 2:
+            if(typeof arguments[1] == "object")
+            {   
+                for (var i in attr) i == "opacity" ? (obj.style["filter"] = "alpha(opacity=" + attr[i] + ")", obj.style[i] = attr[i] / 100) : obj.style[i] = attr[i];
+            }
+            else
+            {   
+                return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, null)[attr]
+            }
+            break;
+        case 3:
+            attr == "opacity" ? (obj.style["filter"] = "alpha(opacity=" + value + ")", obj.style[attr] = value / 100) : obj.style[attr] = value;
+            break;
+    }
+};
+    //输入字符限制
+    function confine ()
+    {
+        var oConBox = document.getElementById("conBox");
+        var i = 0;
+        var maxNum = 140;
+        var oMaxNum = jQuery(".maxNum")[0];
+        var oCountTxt = jQuery(".countTxt")[0];
+        var iLen = 0;       
+        for (i = 0; i < oConBox.value.length; i++) iLen += /[^\x00-\xff]/g.test(oConBox.value.charAt(i)) ? 1 : 0.5;
+        oMaxNum.innerHTML = Math.abs(maxNum - Math.floor(iLen));    
+        maxNum - Math.floor(iLen) >= 0 ? (css(oMaxNum, "color", ""), oCountTxt.innerHTML = "\u8fd8\u80fd\u8f93\u5165", bSend = true) : (css(oMaxNum, "color", "#f60"), oCountTxt.innerHTML = "\u5df2\u8d85\u51fa", bSend = false)
+    }
+
+
+jQuery(document).ready(function() {
+
+    //加载即调用
+    confine();      
+    jQuery(".wb_textarea").focus(function(){
+        confine();  
+    })
+
+    jQuery(".wb_textarea").keyup(function(){
+        confine();  
+    })
+    jQuery(".wb_textarea").change(function(){
+        confine();  
+    })
+
+    var myDate = new Date();
+    var themonth=parseInt(myDate.getMonth())+1; 
+    var thedate=myDate.getDate(); 
+    var theweek=myDate.getDay();
+    var week;
+    switch (theweek)
+    {
+    case 0:
+      week="星期天";
+      break;
+    case 1:
+      week="星期一";
+      break;
+    case 2:
+      week="星期二";
+      break;
+    case 3:
+      week="星期三";
+      break;
+    case 4:
+      week="星期四";
+      break;
+    case 5:
+      week="星期五";
+      break;
+    case 6:
+      week="星期六";
+      break;
+    }
+   jQuery("#month").html(themonth+"月");
+   jQuery("#date_d").html(thedate);
+   jQuery("#week_b").html(week);
+
+
+})
+
+</script>
+</head>
+
+<body>
+
+<div class="mainwrapper">
+    
+    <div class="header">
+        <div class="logo">
+            <a href="#"><img src="images/logo.png" alt="" /></a>
+        </div>
+        <div class="headerinner">
+            <ul class="headmenu">
+                <li class="odd">
+                    <a class="dropdown-toggle"  href="index.html">
+                        <span class="head-icon head-home"></span>
+                        <span class="headmenu-label">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+                    <span class="count">10</span>
+                    <span class="head-icon head-meeting"></span>
+                    <span class="headmenu-label">会议</span>
+                    </a>
+                    <ul class="dropdown-menu" style="width:220px;">
+                        <li class="nav-header">会议</li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li><a href=""><span class="icon-envelope fl"></span> <div class="meetingname" title="某某某会议某某某会议">某某某会议</div><strong class="gname">张三</strong> <small class="muted fl">19小时</small></a></li>
+                        <li class="viewmore"><a href="meeting.html">更多</a></li>
+                    </ul>
+                </li>
+                <li class="odd" class="sj_shejiao">
+                    <a class="dropdown-toggle" href="shejiao.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-shejiao"></span>
+                    <span class="headmenu-label">社交</span>
+                    </a>
+                </li>
+                <li class="ht_background">
+                    <a class="dropdown-toggle" href="backmanage.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-backmanage"></span>
+                    <span class="headmenu-label">后台管理</span>
+                    </a>
+                </li>
+                <li class="odd wp_cloud">
+                    <a class="dropdown-toggle" href="cloud.html">
+                    <span class="count">1</span>
+                    <span class="head-icon head-cloud"></span>
+                    <span class="headmenu-label">网盘</span>
+                    </a>
+                </li>
+                <li class="right">
+                    <div class="userloggedinfo">
+                        <img src="images/photos/thumb1.png" alt="" />
+                        <div class="userinfo">
+                            <h5>小胖 <small>- pang@hotmail.com</small></h5>
+                            <ul>
+                                <li><a href="my_info.html">编辑信息</a></li>
+                                <li><a href="">账号管理</a></li>
+                                <li><a href="index.html">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul><!--headmenu-->
+        </div>
+    </div>
+    
+    <div class="leftpanel">
+        
+        <div class="leftmenu">        
+            <ul class="nav nav-tabs nav-stacked">
+            	<li class="nav-header">导航</li>
+                <li class="active"><a href="shejiao.html"><span class="fa fa-microphone"></span>微博</a></li>
+                <li><a href="sixin.html"><span class="fa fa-envelope-o"></span>收件箱</a></li>
+                <li><a href="group.html"><span class="fa fa-users"></span>小组</a></li>
+                <li><a href="mp.html"><span class="fa fa-newspaper-o"></span> 我的名片</a></li>
+                <li><a href="dongtai.html"><span class="fa fa-comment"></span>我的动态</a></li>
+                <li class="dropdown"><a href=""><span class="fa fa-tty"></span>通讯录</a>
+                    <ul>
+                        <li class="active"><a href="#">我的联系人</a></li>
+                        <li><a href="qiye_txr.html">企业通讯录</a></li>
+                        <li><a href="#">小组通讯录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--leftmenu-->
+        
+    </div><!-- leftpanel -->
+    
+    <div class="rightpanel">
+        
+        <ul class="breadcrumbs">
+            <li><a href="meeting.html"><i class="fa fa-home"></i></a> <span class="separator"></span></li>
+            <li>会议</li>
+            <li class="right">
+                    <a href="" data-toggle="dropdown" class="dropdown-toggle"><i class="icon-tint"></i> 皮肤颜色</a>
+                    <ul class="dropdown-menu pull-right skin-color">
+                        <li><a href="default">默认颜色</a></li>
+                        <li><a href="blue">蓝色</a></li>
+                        <li><a href="palegreen">军绿色</a></li>
+                        <li><a href="red">红色</a></li>
+                        <li><a href="green">绿色</a></li>
+                        <li><a href="brown">棕色</a></li>
+                    </ul>
+            </li>
+        </ul>
+        
+        <div class="maincontent">
+            <div class="maincontentinner">
+                <div class="row-fluid">
+                    <div  class="span8 shejiao" style="margin-left:1%;">
+
+                      <div class="toppublish">
+                        <div class="lefthead">
+                            <img src="images/nohead.png" />
+                        </div>
+                        <div class="wbpublish">
+                         <textarea name="" placeholder="说点什么吧~" id="conBox" class="wb_textarea"></textarea>
+                           <div class="wb_tr">
+                                <p>
+                                    <span class="countTxt">还能输入</span><strong class="maxNum">140</strong><span>个字</span>
+
+                                    <input id="sendBtn" type="button" class="addbtn fr" value="发送" title="快捷键 Ctrl+Enter" />
+                                </p>
+                            </div>
+
+                         
+                            
+                        </div>
+
+
+                          
+                      </div>
+
+                      <div class="down_pb_list">
+                       <div class="inner_publish">
+                            <div class="btn-group fr">
+                                <button data-toggle="dropdown" class="all_btnsel btn dropdown-toggle">全部 <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#">最新</a></li>
+                                  <li><a href="#">最热</a></li>
+                                  <li><a href="#">联系人</a></li>
+                                  <li><a href="#">分享</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="publish_list">
+                                <div class="lefthead">
+                                    <img src="images/nohead.png" />
+                                </div>
+                                <div class="wbpublish">
+                                   <div><a href="#">张三</a></div>
+                                   <p>今天上午10点有会，大家不要迟到啊！</p>
+                                   <div class="opetate_zz"><a href="#">赞</a> <a>▪</a><a href="#">评论</a><a>▪</a><a href="#">分享</a><a>▪</a><a class="fb_time">50秒前</a></div>
+                                </div>
+
+                            </div>
+
+                            <div class="publish_list">
+                                <div class="lefthead">
+                                    <img src="images/nohead.png" />
+                                </div>
+                                <div class="wbpublish">
+                                   <div><a href="#">张三</a></div>
+                                   <p>今天上午10点有会，大家不要迟到啊！</p>
+                                   <div class="opetate_zz"><a href="#">赞</a> <a>▪</a><a href="#">评论</a><a>▪</a><a href="#">分享</a><a>▪</a><a class="fb_time">50秒前</a></div>
+                                </div>
+
+                            </div>
+
+                            <div class="publish_list">
+                                <div class="lefthead">
+                                    <img src="images/nohead.png" />
+                                </div>
+                                <div class="wbpublish">
+                                   <div><a href="#">张三</a></div>
+                                   <p>今天上午10点有会，大家不要迟到啊！</p>
+                                   <div class="opetate_zz"><a href="#">赞</a> <a>▪</a><a href="#">评论</a><a>▪</a><a href="#">分享</a><a>▪</a><a class="fb_time">50秒前</a></div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                       </div>
+                       <div class="clearfix"></div>
+                      </div>
+
+
+
+
+
+                     </div>
+                     <div class="right_data_ap">
+
+                       <div class="cander_time">
+                        <div class="top_months" id="month">10月</div>
+                         <div class="mid_date" id="date_d">23</div>
+                         <div class="bottom_week" id="week_b">星期五</div>
+                           
+                       </div>
+                       <div class="ri_cheng"><a href="#">日程</a></div>
+
+                       <div class="recentadd">最近加入的同事</div>
+                       <ul class="peopleaddlist">
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+                        <li><a href="#" title="张三"><img src="images/nohead.png" /></a></li>
+
+                       </ul>
+
+
+
+
+                  
+
+                     </div>
+                </div><!--tabbedwidget-->
+                        
+                
+                <div class="footer">
+                    <div class="footer-left">
+                        <span>&copy; 2014. 上海励铖软件. All Rights Reserved.</span>
+                    </div>
+                    <div class="footer-right">
+                        <span>Power by: <a href="">上海励铖软件</a></span>
+                    </div>
+                </div><!--footer-->
+                
+            </div><!--maincontentinner-->
+        </div><!--maincontent-->
+        
+    </div><!--rightpanel-->
+    
+</div><!--mainwrapper-->
+
+</body>
+</html>
